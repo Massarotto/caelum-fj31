@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<produto>
+    <preco>20.34</preco>
+    <nome>bola</nome>
+    <descricao>uma bola quadrada</descricao>
+    <categoria>
+        <nome>esporte</nome>
+    </categoria>
+</produto>
