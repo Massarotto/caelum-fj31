@@ -1,20 +1,22 @@
 package br.com.caelum.loja.session;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.ejb.Remote;
 import javax.ejb.Stateless;
+import javax.interceptor.Interceptors;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import br.com.caelum.loja.entity.Autor;
 import br.com.caelum.loja.entity.Livro;
 import br.com.caelum.loja.exception.SalvaLivroException;
+import br.com.caelum.loja.interceptor.AuditoriaInterceptor;
 
 @Stateless
 @Remote(GerenciadorLoja.class)
+@Interceptors(AuditoriaInterceptor.class)
 public class GerenciadorLojaBean implements GerenciadorLoja {
 	
 	@PersistenceContext
@@ -46,9 +48,8 @@ public class GerenciadorLojaBean implements GerenciadorLoja {
 	public void salva(Livro livro) {
 		this.em.persist(livro);
 		System.out.println("Livro salvo! ID: " + livro.getId());
-		throw new SalvaLivroException();
 	}
-
+	
 	@Override
 	public Autor salva(Autor autor) {
 		this.em.persist(autor);
