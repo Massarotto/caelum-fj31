@@ -17,7 +17,7 @@ public class AuditoriaInterceptor {
 		
 		System.out.println("**** AUDITORIA ****");
 		System.out.println("Acessando: " + classe + "." + metodo + "(" + params + ")");
-		
+
 		return context.proceed();
 	}
 	
