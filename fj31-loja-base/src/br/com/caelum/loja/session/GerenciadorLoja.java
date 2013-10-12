@@ -11,7 +11,7 @@ public interface GerenciadorLoja {
 	
 	Livro procura(String isbn);
 	
-	void salva(Livro livro);
+	Livro salva(Livro livro);
 	
 	Autor salva(Autor autor);
 	

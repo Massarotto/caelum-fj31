@@ -46,9 +46,10 @@ public class GerenciadorLojaBean implements GerenciadorLoja {
 	}
 
 	@Override
-	public void salva(Livro livro) {
+	public Livro salva(Livro livro) {
 		this.em.persist(livro);
 		System.out.println("Livro salvo! ID: " + livro.getId());
+		return livro;
 	}
 	
 	@Override
